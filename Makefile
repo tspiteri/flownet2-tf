@@ -1,8 +1,7 @@
 # Makefile
 
-TF_INC = `python -c "import tensorflow; print(tensorflow.sysconfig.get_include())"`
-TF_CFLAGS = `python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_compile_flags()))'`
-TF_LFLAGS = `python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_link_flags()))'`
+TF_CFLAGS := $(shell python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_compile_flags()))')
+TF_LFLAGS := $(shell python -c 'import tensorflow as tf; print(" ".join(tf.sysconfig.get_link_flags()))')
 
 ifndef CUDA_HOME
     CUDA_HOME := /usr/local/cuda
