@@ -12,7 +12,7 @@ CC        = gcc -O2 -pthread
 CXX       = g++
 GPUCC     = nvcc
 CFLAGS    = -std=c++11 $(TF_CFLAGS) -I"$(CUDA_HOME)/include" -DGOOGLE_CUDA=1
-GPUCFLAGS = -c
+GPUCFLAGS = -c --expt-relaxed-constexpr
 LFLAGS    = -pthread -shared -fPIC $(TF_LFLAGS)
 GPULFLAGS = -x cu -Xcompiler -fPIC
 CGPUFLAGS = -L$(CUDA_HOME)/lib -L$(CUDA_HOME)/lib64 -lcudart
